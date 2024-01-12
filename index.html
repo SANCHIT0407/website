@@ -18,12 +18,10 @@
 
 <body>
     <header class="header">
-
         <a href="#" class="logo"><img src="logo.png" alt=""></a>
         <ul class="navmenu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a>
-            <li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Pages</a></li>
             <li><a href="#">Docs</a></li>
@@ -32,7 +30,7 @@
             <a href="#"><i class='bx bx-search'></i></a>
             <a href="#"><i class='bx bx-user'></i></a>
             <a href="#"><i class='bx bx-cart'></i></a>
-            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="bx bx-menu" id="menu-icon" onclick="showSideBar()"></div>
         </div>
     </header>
 
@@ -65,7 +63,7 @@
             <h2>Our Trending<span>Products</span></h2>
         </div>
 
-        <div class="products" style="overflow: hidden;">
+        <div class="products">
             <div class="row">
                 <div class="imgBox">
                     <img class="productImg" src="varcity jacket.jpg" alt="">
@@ -341,11 +339,11 @@
     }
 
     const tl = gsap.timeline();
-    tl.from('.header',{
-        opacity : 0,
-        y : -400,
-        duration : 1,
-    })
+    // tl.from('.header',{
+    //     opacity : 0,
+    //     y : -400,
+    //     duration : 1,
+    // })
     tl.from('.content-main',{
         opacity : 0,
         x : -400,
@@ -405,5 +403,16 @@
         duration : 0.5,
     })
 
+    const navContainer = document.querySelector('.navmenu');
+    let toggleMenu = true;
+    function showSideBar(){
+        if(toggleMenu){
+            navContainer.style.right = "0%"
+            toggleMenu = false;
+        }else{
+            navContainer.style.right = "-100%"
+            toggleMenu = true;
+        }
+    }
 </script>
 </html>
